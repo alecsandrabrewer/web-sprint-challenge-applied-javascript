@@ -1,3 +1,20 @@
+import axios from 'axios';
+
+let topic = document.querySelector('.topics');
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
+    .then(response => {
+        let rData = response.data.topics;
+        console.log(rData);
+        // rData.forEach(item => {
+        //     topic.appendChild(Tabs(item));
+        // })
+
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,6 +30,12 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  
+  let tab = document.createElement('div');
+  tab.classList.add('tab');
+  tab.textContent = topics;
+
+  return tab;
 }
 
 const tabsAppender = (selector) => {

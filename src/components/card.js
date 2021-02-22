@@ -1,4 +1,38 @@
-const Card = (article) => {
+import axios from 'axios';
+
+let cardsContainer = document.querySelector('.cards-container');
+
+axios
+    .get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response => {
+        console.log(response.data.articles)
+        // let bootstrapArticle = response.data.articles.bootstrap
+        //     for (let i = 0; i < bootstrapArticle.length; i++){
+        //         cardsContainer.appendChild(Card(response.data.articles.bootstrap[i]));
+        //     }
+        // let javascriptArticle = response.data.articles.javascript
+        //     for (let i = 0; i < javascriptArticle.length; i++){
+        //         cardsContainer.appendChild(Card(response.data.articles.javascript[i]));
+        // }
+        // let jqueryArticle = response.data.articles.jquery
+        //     for (let i = 0; i < jqueryArticle.length; i++){
+        //         cardsContainer.appendChild(Card(response.data.articles.jquery[i]));
+        // }
+        // let nodeArticle = response.data.articles.node
+        //     for (let i = 0; i < nodeArticle.length; i++){
+        //         cardsContainer.appendChild(Card(response.data.articles.node[i]));
+        // }
+        // let techArticle = response.data.articles.technology
+        //     for (let i = 0; i < techArticle.length; i++){
+        //         cardsContainer.appendChild(Card(response.data.articles.technology[i]));
+        // }
+
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+const Card = (object) => {
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -17,6 +51,30 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  let card = document.createElement('div');
+  let headline = document.createElement('div');
+  let author = document.createElement('div');
+  let imgContainer = document.createElement('div');
+  let img = document.createElement('img');
+  let authorName = document.createElement('span');
+
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(img);
+  author.appendChild(authorName);
+
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
+
+  headline.textContent = object.headline;
+  img.src = object.authorPhoto;
+  authorName.textContent = object.authorName;
+
+  return card;
 }
 
 const cardAppender = (selector) => {
