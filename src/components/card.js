@@ -6,26 +6,26 @@ axios
     .get('https://lambda-times-backend.herokuapp.com/articles')
     .then(response => {
         console.log(response.data.articles)
-        // let bootstrapArticle = response.data.articles.bootstrap
-        //     for (let i = 0; i < bootstrapArticle.length; i++){
-        //         cardsContainer.appendChild(Card(response.data.articles.bootstrap[i]));
-        //     }
-        // let javascriptArticle = response.data.articles.javascript
-        //     for (let i = 0; i < javascriptArticle.length; i++){
-        //         cardsContainer.appendChild(Card(response.data.articles.javascript[i]));
-        // }
-        // let jqueryArticle = response.data.articles.jquery
-        //     for (let i = 0; i < jqueryArticle.length; i++){
-        //         cardsContainer.appendChild(Card(response.data.articles.jquery[i]));
-        // }
-        // let nodeArticle = response.data.articles.node
-        //     for (let i = 0; i < nodeArticle.length; i++){
-        //         cardsContainer.appendChild(Card(response.data.articles.node[i]));
-        // }
-        // let techArticle = response.data.articles.technology
-        //     for (let i = 0; i < techArticle.length; i++){
-        //         cardsContainer.appendChild(Card(response.data.articles.technology[i]));
-        // }
+        let bootstrapArticle = response.data.articles.bootstrap
+            for (let i = 0; i < bootstrapArticle.length; i++){
+                cardsContainer.appendChild(Card(response.data.articles.bootstrap[i]));
+            }
+        let javascriptArticle = response.data.articles.javascript
+            for (let i = 0; i < javascriptArticle.length; i++){
+                cardsContainer.appendChild(Card(response.data.articles.javascript[i]));
+        }
+        let jqueryArticle = response.data.articles.jquery
+            for (let i = 0; i < jqueryArticle.length; i++){
+                cardsContainer.appendChild(Card(response.data.articles.jquery[i]));
+        }
+        let nodeArticle = response.data.articles.node
+            for (let i = 0; i < nodeArticle.length; i++){
+                cardsContainer.appendChild(Card(response.data.articles.node[i]));
+        }
+        let techArticle = response.data.articles.technology
+            for (let i = 0; i < techArticle.length; i++){
+                cardsContainer.appendChild(Card(response.data.articles.technology[i]));
+        }
 
     })
     .catch(err => {
